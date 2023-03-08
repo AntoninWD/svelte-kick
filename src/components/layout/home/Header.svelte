@@ -1,11 +1,24 @@
 <script>
-    import Link from "../../../components/common/Link.svelte";
+	import { Link } from '../../index';
+
+	const Style = {
+		base: 'flex items-center justify-between p-6'
+	};
 </script>
 
 <header>
-	<nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+	<nav class={Style.base}>
+		<Link to="/">
+			<span>Svelte Kick</span>
+		</Link>
+
 		<div>
-            <Link to="allo" css={{ base: "text-red-400 md:text-blue-500"}}/>
-        </div>
+			<Link to="/about">About</Link>
+			<Link to="/pricing">Pricing</Link>
+		</div>
+		<div>
+			<Link to="/signin" secondary>Sign in</Link>
+			<Link to="/signup" primary>Sign up</Link>
+		</div>
 	</nav>
 </header>

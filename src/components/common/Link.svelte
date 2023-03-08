@@ -3,15 +3,21 @@
 	export let to: string; // url to link to
 	export let css: {
 		[key: string]: string;
-	};
+	} = {};
+	export let secondary: boolean = false;
+	export let primary: boolean = false;
 
 	const Style = twMerge(
 		{
-			base: 'text-gray-600'
+			wrapper: `py-1 px-2 mx-2 lg:text-lg transition-base rounded ${
+				secondary && 'shadow border border-white text-white hover:bg-white hover:border-main-500'
+			}
+			${primary && 'shadow bg-main-500 text-white hover:bg-main-600'}
+			`
 		},
 		{ ...css }
 	);
-	console.log(Style);
+
 </script>
 
-<a href={to} class={Style.base}>Company</a>
+<a href={to} class={Style.wrapper}><slot /></a>

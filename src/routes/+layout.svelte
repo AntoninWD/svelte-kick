@@ -1,7 +1,13 @@
 <script lang="ts">
-    import "../app.css";
-    import Header from "../components/layout/home/Header.svelte";
+	import '../app.css';
+	import { Header, Footer, Background } from '../components/index';
 </script>
 
-<Header />
-<slot />
+<div class="grid grid-rows-[auto_1fr_auto] min-h-screen">
+	<Background />
+	<Header />
+	<main class="grow">
+		<slot />
+	</main>
+	<Footer />
+</div>
